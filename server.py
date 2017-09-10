@@ -11,7 +11,7 @@ def script_caller(image):
 
         return label_image.function(graph, image, textFile)
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/picture", methods=['GET', 'POST'])
 def root():
     image = "images/ant/1.jpeg"
     (labels, confidences) = script_caller(image)
