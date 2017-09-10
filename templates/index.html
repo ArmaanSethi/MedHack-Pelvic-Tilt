@@ -14,27 +14,27 @@
     .open_button {
       z-index:999;
       float: bottom;
-      width:181px;
+      width:175px;
       border-radius:10px;
     }
     .open_button:hover {
       background-color: gray;
       color: white;
     }
+    .submit:hover {
+      background-color: gray;
+      color: white;
+    }
+
   </style>
 </head>
 
 <body>
-<<<<<<< HEAD
-<p>what is medhacks</p>
-<a href = "/results">click here</a>
-=======
 <img class = "logo" src="../pictures/Pelfit with pelvis.png">
 <div>
-  <input type = "file" class = "open_button" onselect="sendPic()"></input>
+  <input type = "file" class = "open_button"></input>
+  <button class = "submit" href = "/results">Submit</button>
 </div>
-  <p>{{ label}}</p>
-  <p>{{ confidence }}</p>
 <script type="text/javascript">
     function sendPic() {
         var xhttp = new XMLHttpRequest();
@@ -50,7 +50,5 @@
 
 
 </script>
-
->>>>>>> 9bf8324089cfc11e625e4ac25abfea167ec385f9
 </body>
 </html>
