@@ -13,7 +13,7 @@ def script_caller(image):
 
         return label_image.function(graph, image, textFile)
 
-@app.route("/", methods=['GET', 'POST'])
+@app.route("/picture", methods=['GET', 'POST'])
 def root():
     return render_template('index.html')
 
