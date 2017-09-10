@@ -7,25 +7,20 @@ from werkzeug import secure_filename
 
 def script_caller(image):
         graph = "retrained_graph.pb" # on site
-        image = "images/post/20.jpeg" # user input
-
+        #image = "images/post/20.jpeg" # user input
         textFile = "retrained_labels.txt" #on the site
-
         return label_image.function(graph, image, textFile)
 
-@app.route("/picture", methods=['GET', 'POST'])
+@app.route("/", methods=['GET', 'POST'])
 def root():
     return render_template('index.html')
-
-#@app.route('/upload')
-#def upload_file():
-#   return render_template('upload.html')
 
 @app.route('/uploader', methods = ['GET', 'POST'])
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
-      f.save(secure_filename(f.filename))
+      f.save('uploads/user_upload.jpeg')
+      return do_things('uploads/user_upload.jpeg')
       return 'file uploaded successfully'
 
 @app.route('/results')
