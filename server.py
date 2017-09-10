@@ -3,6 +3,7 @@ from flask import Flask, render_template, request, redirect, url_for
 app = Flask(__name__)
 
 import label_image
+from werkzeug import secure_filename
 
 def script_caller(image):
         graph = "retrained_graph.pb" # on site
@@ -15,6 +16,17 @@ def script_caller(image):
 @app.route("/", methods=['GET', 'POST'])
 def root():
     return render_template('index.html')
+
+#@app.route('/upload')
+#def upload_file():
+#   return render_template('upload.html')
+
+@app.route('/uploader', methods = ['GET', 'POST'])
+def upload_file():
+   if request.method == 'POST':
+      f = request.files['file']
+      f.save(secure_filename(f.filename))
+      return 'file uploaded successfully'
 
 @app.route('/results')
 def do_things(image = None):
