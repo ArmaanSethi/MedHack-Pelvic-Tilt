@@ -7,10 +7,28 @@
   <title>MedHack Life</title>
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <style>
+    .logo {
+      float: top;
+    }
+    .open_button {
+      z-index:999;
+      float: bottom;
+      width:181px;
+      border-radius:10px;
+    }
+    .open_button:hover {
+      background-color: black;
+      color: white;
+    }
+  </style>
 </head>
 
 <body>
-<p>what is medhacks</p>
+<img class = "logo" src="../pictures/Pelfit with pelvis.png">
+<div>
+  <button class = "open_button">Open Picture</button>
+</div>
   <p>{{ label}}</p>
   <p>{{ confidence }}</p>
 
