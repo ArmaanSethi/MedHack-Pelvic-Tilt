@@ -34,4 +34,4 @@ def do_things(image = None):
     return render_template('results.html', label = the_label, confidence = the_confidence)
 
 if __name__ == "__main__":
-    app.run(host = "0.0.0.0", port = 5000, debug = True)
+    app.run(host = "0.0.0.0", port = 8000, debug = True)
