@@ -2,65 +2,31 @@
 
 <html lang="en">
 <head>
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta charset="utf-8">
 
   <title>MedHack Life</title>
 
   <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <style>
-    .logo {
-      float: top;
-    }
-    .open_button {
-      z-index:999;
-      float: bottom;
-      width:181px;
-      border-radius:10px;
-    }
-    .open_button:hover {
-      background-color: black;
-      color: white;
-    }
-  </style>
 </head>
 
 <body>
-<!doctype html>
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-
-  <title>MedHack Life</title>
-
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
-  <style>
-    .logo {
-      float: top;
-    }
-    .open_button {
-      z-index:999;
-      float: bottom;
-      width:175px;
-      border-radius:10px;
-    }
-    .open_button:hover {
-      background-color: gray;
-      color: white;
-    }
-    .submit:hover {
-      background-color: gray;
-      color: white;
-    }
-  </style>
-</head>
-
-<body>
-<img class = "logo" src="../static/Pelfit_with_pelvis.png">
+<p class="text-center">
+<img class = "logo" src="../static/Pelfit_logo.png">
+</p>
   <form action = "/uploader" method = "POST"
    enctype = "multipart/form-data">
+      <p class="col-sm-3 col-sm-offset-4">
    <input type = "file" name = "file" />
-   <input type = "submit"/>
+      </p>
+   <input type = "submit" name = "submit"/>
   </form>
 </body>
 </html>
