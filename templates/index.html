@@ -14,25 +14,22 @@
     .open_button {
       z-index:999;
       float: bottom;
-      width:175px;
+      width:181px;
       border-radius:10px;
     }
     .open_button:hover {
-      background-color: gray;
+      background-color: black;
       color: white;
     }
-    .submit:hover {
-      background-color: gray;
-      color: white;
-    }
-
   </style>
 </head>
+
 <body>
   <form action = "http://localhost:5000/uploader" method = "POST"
    enctype = "multipart/form-data">
    <input type = "file" name = "file" />
    <input type = "submit"/>
   </form>
+
 </body>
 </html>
