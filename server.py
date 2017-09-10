@@ -19,8 +19,8 @@ def root():
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
-      f.save('uploads/user_upload.jpeg')
-      return do_things('uploads/user_upload.jpeg')
+      f.save('static/user_upload.jpeg')
+      return do_things('static/user_upload.jpeg')
       return 'file uploaded successfully'
 
 @app.route('/results')
