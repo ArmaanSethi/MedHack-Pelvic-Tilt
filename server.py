@@ -28,13 +28,13 @@ def add_header(r):
 def root():
     return render_template('index.html')
 
-@app.route('/uploader', methods = ['GET', 'POST'])
+@app.route('/uploader', methods = ['POST'])
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
       f.save('static/user_upload.jpeg')
       return do_things('static/user_upload.jpeg')
-      return 'file uploaded successfully'
+    #   return 'file uploaded successfully'
 
 @app.route('/results')
 def do_things(image = None):
