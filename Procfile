@@ -1,1 +1,1 @@
-web: gunicorn app:app
+web: gunicorn MedHack-Pelvic-Tilt:app
