@@ -24,6 +24,7 @@ import numpy as np
 import tensorflow as tf
 
 def load_graph(model_file):
+  print("IN LOAD GRAPH")
   graph = tf.Graph()
   graph_def = tf.GraphDef()
 
@@ -31,7 +32,7 @@ def load_graph(model_file):
     graph_def.ParseFromString(f.read())
   with graph.as_default():
     tf.import_graph_def(graph_def)
-
+  print("DONE LOADING GRAPH")
   return graph
 
 def read_tensor_from_image_file(file_name, input_height=299, input_width=299,
@@ -67,6 +68,7 @@ def load_labels(label_file):
   return label
 
 def function(graph, image, textFile):
+  print("IN TF FUNCTION")
   file_name = image
   model_file = graph
   label_file = textFile
@@ -76,38 +78,38 @@ def function(graph, image, textFile):
   input_std = 128
   input_layer = "input"
   output_layer = "final_result"
-
-  parser = argparse.ArgumentParser()
-  parser.add_argument("--image", help="image to be processed")
-  parser.add_argument("--graph", help="graph/model to be executed")
-  parser.add_argument("--labels", help="name of file containing labels")
-  parser.add_argument("--input_height", type=int, help="input height")
-  parser.add_argument("--input_width", type=int, help="input width")
-  parser.add_argument("--input_mean", type=int, help="input mean")
-  parser.add_argument("--input_std", type=int, help="input std")
-  parser.add_argument("--input_layer", help="name of input layer")
-  parser.add_argument("--output_layer", help="name of output layer")
-  args = parser.parse_args()
-
-  if args.graph:
-    model_file = args.graph
-  if args.image:
-    file_name = args.image
-  if args.labels:
-    label_file = args.labels
-  if args.input_height:
-    input_height = args.input_height
-  if args.input_width:
-    input_width = args.input_width
-  if args.input_mean:
-    input_mean = args.input_mean
-  if args.input_std:
-    input_std = args.input_std
-  if args.input_layer:
-    input_layer = args.input_layer
-  if args.output_layer:
-    output_layer = args.output_layer
-
+  print("TF AFTER SET VARS")
+  # parser = argparse.ArgumentParser()
+  # parser.add_argument("--image", help="image to be processed")
+  # parser.add_argument("--graph", help="graph/model to be executed")
+  # parser.add_argument("--labels", help="name of file containing labels")
+  # parser.add_argument("--input_height", type=int, help="input height")
+  # parser.add_argument("--input_width", type=int, help="input width")
+  # parser.add_argument("--input_mean", type=int, help="input mean")
+  # parser.add_argument("--input_std", type=int, help="input std")
+  # parser.add_argument("--input_layer", help="name of input layer")
+  # parser.add_argument("--output_layer", help="name of output layer")
+  # args = parser.parse_args()
+  print("TF AFTER PARSER")
+  # if args.graph:
+  #   model_file = args.graph
+  # if args.image:
+  #   file_name = args.image
+  # if args.labels:
+  #   label_file = args.labels
+  # if args.input_height:
+  #   input_height = args.input_height
+  # if args.input_width:
+  #   input_width = args.input_width
+  # if args.input_mean:
+  #   input_mean = args.input_mean
+  # if args.input_std:
+  #   input_std = args.input_std
+  # if args.input_layer:
+  #   input_layer = args.input_layer
+  # if args.output_layer:
+  #   output_layer = args.output_layer
+  print("TF AFTER ARG PARSER")
   graph = load_graph(model_file)
   t = read_tensor_from_image_file(file_name,
                                   input_height=input_height,
@@ -129,4 +131,5 @@ def function(graph, image, textFile):
   labels = load_labels(label_file)
   for i in top_k:
     print(labels[i], results[i])
+  print("TF FUNCTION DONE")
   return (labels, results)

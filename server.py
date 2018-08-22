@@ -6,6 +6,7 @@ import label_image
 from werkzeug import secure_filename
 
 def script_caller(image):
+        print("IN SCRIPT CALLER")
         graph = "retrained_graph.pb" # on site
         #image = "images/post/20.jpeg" # user input
         textFile = "retrained_labels.txt" #on the site
@@ -32,18 +33,23 @@ def root():
 def upload_file():
    if request.method == 'POST':
       f = request.files['file']
+      print("BEFORE SAVE")
       f.save('static/user_upload.jpeg')
+      print("AFTER SAVE")
       return do_things('static/user_upload.jpeg')
     #   return 'file uploaded successfully'
 
 @app.route('/results')
 def do_things(image = None):
+    print("IN DO THINGS")
     (labels, confidences) = script_caller(image)
+    print("AFTER SCRIPT CALLER")
     the_label = "None"
     for i in range(len(labels)):
         if(confidences[i]) > 0.5:
             the_label = labels[i]
             the_confidence = confidences[i]
+    print("PRETTY MUCH DONE LOL")
     return render_template('results.html', label = the_label, confidence = the_confidence)
 
 if __name__ == "__main__":
