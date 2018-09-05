@@ -1,5 +1,3 @@
-<!doctype html>
-
 <html lang="en">
 <head>
   <!-- Latest compiled and minified CSS -->
@@ -12,21 +10,29 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <meta charset="utf-8">
 
-  <title>MedHack Life</title>
+  <title>PelFit</title>
 
-  <!-- <link rel="stylesheet" href="css/styles.css?v=1.0"> -->
 </head>
 
-<body>
-<p class="text-center">
-<img class = "logo" src="../static/Pelfit_logo.png">
-</p>
-  <form action = "/uploader" method = "POST"
-   enctype = "multipart/form-data">
-      <p class="col-sm-3 col-sm-offset-4">
-   <input type = "file" name = "file" />
-      </p>
-   <input type = "submit" name = "submit"/>
+<body style="background-color:#cef4ff;">
+<div class="text-center">
+
+  <form action="/uploader" method="POST" name="form"
+    enctype="multipart/form-data">
+    <label for="file-input">
+        <img class="logo" src="../static/Pelfit_logo.png" style="cursor:pointer;"/>
+    </label>
+    <input id="file-input" type="file" name="file" style="display:none;" onchange="document.form.submit();"/>
   </form>
+
+  <section class="text-center visible-sm">
+    <br><br><br>
+    <h1>Tap the logo to upload a photo!</h1>
+  </section>
+  <section class="text-center hidden-sm">
+    Click the logo to upload a file!
+  </section>
+
+</div>
 </body>
 </html>
