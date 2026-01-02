@@ -3,3 +3,5 @@
 pelvic_env/
 new_env/
 static/user_upload.jpeg
+*.pyc
+__pycache__/
